@@ -1,0 +1,119 @@
+﻿<html>
+<head>
+    <style type="text/css">
+        html, body, td {
+            font-family: 'Courier New', Arial;
+            /*font-weight: bold;*/
+        }
+    </style>
+</head>
+<body>
+    ------ FAX ------- FAX ------- FAX ------- FAX ------- FAX ------- FAX ------<br />
+    <table width="100%">
+        <tr>
+            <td width="75px">Absender</td>
+            <td>: EZ Mauern</td>
+        </tr>
+        <tr>
+            <td>Fax</td>
+            <td>: +498764112</td>
+        </tr>
+        <tr>
+            <td>Termin</td>
+            <td>:</td>
+        </tr>
+        <tr>
+            <td colspan="2">Einsatznummer : {{Operation.OperationNumber}}</td>
+        </tr>
+    </table>
+    ------------------------------&nbsp;&nbsp;MITTEILER&nbsp;&nbsp;---------------------------------- <br />
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>: {{Operation.Messenger}}</td>
+        </tr>
+        <tr>
+            <td>Rufnummer</td>
+            <td>: </td>
+        </tr>
+    </table>
+    ------------------------------&nbsp;&nbsp;EINSATZORT&nbsp;&nbsp;--------------------------------- <br />
+    <table width="100%">
+        <tr>
+            <td width="100px">Straße</td>
+            <td width="200px">: {{Operation.Einsatzort.Street}}</td>
+            <td>Hauß-Nr.: {{Operation.Einsatzort.StreetNumber}}</td>
+        </tr>
+        <tr>
+            <td>Abschnitt</td>
+            <td colspan="2">: {{Operation.Einsatzort.Intersection}}</td>
+        </tr>
+        <tr>
+            <td>Ort</td>
+            <td colspan="2">: {{Operation.Einsatzort.ZipCode}} - {{Operation.Einsatzort.City}}</td>
+        </tr>
+        <tr>
+            <td>Objekt</td>
+            <td colspan="2">: {{Operation.Einsatzort.Property}}</td>
+        </tr>
+        <tr>
+            <td colspan="3">Einsatzplannummer :</td>
+        </tr>
+        <tr>
+            <td>Station</td>
+            <td colspan="2">: </td>
+        </tr>
+    </table>
+    ------------------------------&nbsp;&nbsp;ZIELORT&nbsp;&nbsp;------------------------------------ <br />
+    <table width="100%">
+        <tr>
+            <td width="100px">Straße</td>
+            <td width="200px">: {{Operation.Zielort.Street}}</td>
+            <td>Hauß-Nr.: {{Operation.Zielort.StreetNumber}}</td>
+        </tr>
+        <tr>
+            <td>Ort</td>
+            <td colspan="2">: {{Operation.Zielort.ZipCode}} - {{Operation.Zielort.City}}</td>
+        </tr>
+        <tr>
+            <td>Objekt</td>
+            <td colspan="2">: {{Operation.Zielort.Property}}</td>
+        </tr>
+        <tr>
+            <td>Station</td>
+            <td colspan="2">: </td>
+        </tr>
+    </table>
+    ------------------------------&nbsp;&nbsp;PATIENT&nbsp;&nbsp;------------------------------------ <br />
+    ------------------------------&nbsp;&nbsp;EINSATZGRUND&nbsp;&nbsp;------------------------------- <br />
+    <table>
+        <tr>
+            <td>Schlagw.</td>
+            <td>: {{Operation.Keywords.Keyword}}</td>
+        </tr>
+        <tr>
+            <td>Stichwort&nbsp;</td>
+            <td>: {{Operation.Keywords.EmergencyKeyword}}</td>
+        </tr>
+    </table>
+    ------------------------------&nbsp;&nbsp;EINSATZMITTEL&nbsp;&nbsp;------------------------------ <br />
+    <table>
+        {{#each Operation.Resources}}
+        <tr>
+            <td>Name</td>
+            <td>: {{FullName}}</td>
+        </tr>
+        <tr>
+            <td>gef. Geräte&nbsp;</td>
+            <td>: <!--{{RequestedEquipment}}--></td>
+        </tr>
+        <tr>
+            <td>Alamiert</td>
+            <td>: {{Timestamp}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    ------------------------------&nbsp;&nbsp;BEMERKUNG&nbsp;&nbsp;---------------------------------- <br />
+    {{Operation.Comment}}
+</body>
+</html>
